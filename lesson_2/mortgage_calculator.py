@@ -20,8 +20,7 @@ def invalid_loan(amount):
 
         return float(amount) <= 0
 
-    else:
-        return True
+    return True
 
 def invalid_int(pct):
     if float('-inf') < float(pct) < float('inf'):
@@ -32,8 +31,7 @@ def invalid_int(pct):
 
         return float(pct) < 0
 
-    else:
-        return True
+    return True
 
 def invalid_dur(duration):
     if float('-inf') < float(duration) < float('inf'):
@@ -44,8 +42,7 @@ def invalid_dur(duration):
 
         return float(duration) <= 0
 
-    else:
-        return True
+    return True
 
 def get_loan_amount():
     prompt("Please enter your loan amount. (e.g. $250,000 = 250000)")
@@ -59,30 +56,30 @@ def get_loan_amount():
 
 def get_int_rate():
     prompt("Please enter an interest rate. (e.g. 6.5% = 6.5)")
-    int_rate = input()
+    rate = input()
 
-    while invalid_int(int_rate):
+    while invalid_int(rate):
         prompt("Please enter a valid interest rate. (e.g. 6.5% = 6.5)")
-        int_rate = input()
+        rate = input()
 
-    return float(int_rate)
+    return float(rate)
 
 def get_loan_duration():
     prompt("Please enter the loan duration in years.")
-    loan_duration = input()
+    duration = input()
 
-    while invalid_dur(loan_duration):
+    while invalid_dur(duration):
         prompt("Please enter a valid duration.")
-        loan_duration = input()
+        duration = input()
 
-    return float(loan_duration)
+    return float(duration)
 
 def compute_monthly_payment(loan, rate, duration):
     if rate != 0:
-        return round(loan * (((rate / 100) / 12) / (1 - (1 + ((rate / 100) / 12))
-                    ** (-duration * 12))), 2)
-    else:
-        return round(loan / (duration * 12), 2)
+        return round(loan * (((rate / 100) / 12) /
+                (1 - (1 + ((rate / 100) / 12)) ** (-duration * 12))), 2)
+
+    return round(loan / (duration * 12), 2)
 
 def display_result(amount, rate, duration, payment):
     prompt(f'''With a loan amount of ${amount}, an interest rate of '''

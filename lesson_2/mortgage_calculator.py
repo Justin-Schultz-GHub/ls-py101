@@ -12,34 +12,34 @@ def prompt(message):
     print(f'==> {message}')
 
 def invalid_loan(amount):
-    if float('-inf') < float(amount) < float('inf'):
-        try:
-            float(amount)
-        except ValueError:
-            return True
+    try:
+        float(amount)
+    except ValueError:
+        return True
 
+    if float('-inf') < float(amount) < float('inf'):
         return float(amount) <= 0
 
     return True
 
 def invalid_int(pct):
-    if float('-inf') < float(pct) < float('inf'):
-        try:
-            float(pct)
-        except ValueError:
-            return True
+    try:
+        float(pct)
+    except ValueError:
+        return True
 
+    if float('-inf') < float(pct) < float('inf'):
         return float(pct) < 0
 
     return True
 
 def invalid_dur(duration):
-    if float('-inf') < float(duration) < float('inf'):
-        try:
-            float(duration)
-        except ValueError:
-            return True
+    try:
+        float(duration)
+    except ValueError:
+        return True
 
+    if float('-inf') < float(duration) < float('inf'):
         return float(duration) <= 0
 
     return True

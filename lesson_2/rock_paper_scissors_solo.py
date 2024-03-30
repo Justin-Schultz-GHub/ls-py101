@@ -26,7 +26,7 @@ def invalid_choice(choice):
 
 
 def player_choice():
-    prompt("""Player 1, enter the corresponding number to make your choice """
+    prompt("""Player, enter the corresponding number to make your choice """
             """(i.e. Rock = 1): \n"""
             """1. Rock\n"""
             """2. Paper\n"""

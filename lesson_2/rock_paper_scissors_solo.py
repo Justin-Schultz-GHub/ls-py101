@@ -54,7 +54,7 @@ def player_choice():
             return "Scissors"
 
 def computer_choice():
-    choice = math.floor(random.randrange(1, 3))
+    choice = math.floor(random.randrange(1, 4))
 
     match choice:
         case 1:

@@ -10,7 +10,7 @@ VALID_CHOICES = ["Rock", "Paper", "Scissors"]
 def prompt(message):
     print(f'==> {message}')
 
-def player_choice():
+def player_pick():
     prompt("""Player, enter the corresponding number to make your choice """
             """(i.e. Rock = 1): \n"""
             """1. Rock\n"""
@@ -46,7 +46,7 @@ def player_choice():
 
     return choice
 
-def computer_choice():
+def computer_pick():
     return random.choice(VALID_CHOICES)
 
 def determine_win(player, computer):
@@ -78,8 +78,8 @@ def play_again():
     return play.lower()
 
 while True:
-    player_choice = player_choice()
-    computer_choice = computer_choice()
+    player_choice = player_pick()
+    computer_choice = computer_pick()
     winner = determine_win(player_choice, computer_choice)
     prompt(winner)
 

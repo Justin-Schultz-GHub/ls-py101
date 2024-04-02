@@ -123,14 +123,14 @@ def round_announce():
         print('')
 
     game_round += 1
-    return game_round
+    return prompt(f'Round {game_round}')
 
 def pick_announce(player, computer):
     prompt(f'''You chose {player}, the computer chose '''
     f'''{computer}.''')
 
 while True:
-    prompt(f'Round {round_announce()}')
+    round_announce()
     player_choice = player_pick()
     computer_choice = computer_pick()
     pick_announce(player_choice, computer_choice)

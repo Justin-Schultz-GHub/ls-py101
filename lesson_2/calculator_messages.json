@@ -1,0 +1,51 @@
+{
+    "en": {
+        "select_language": "Please select the number of the language you would like to use.",
+        "language": "1. English",
+        "welcome": "Welcome to the calculator.",
+        "first_num": "Please enter the first number:",
+        "second_num": "Please enter the second number:",
+        "enter_valid_num": "Please enter a valid number:",
+        "enter_valid_y_n": "Please enter a valid input (y or n):",
+
+        "prompt_op": "Please enter the number of the operation you would like to perform",
+
+        "valid_operation_num": "1. Addition\n2. Subtraction\n3. Multiplication\n4. Division",
+
+        "plus": "plus",
+        "minus": "minus",
+        "times": "times",
+        "divided_by": "divided by",
+
+        "is": "is: ",
+
+        "continue_calc": "Would you like to continue calculating?: y/n",
+
+        "no_continue": "Until next time."
+    },
+
+    "jp": {
+        "select_language": "選択したい言語の番号を入力してください",
+        "language": "2. 日本語",
+        "welcome": "電卓へようこそ。",
+        "first_num": "1番目の番号を入力してください：",
+        "second_num": "2番目の番号を入力してください：",
+        "enter_valid_num": "妥当な番号を入力してください:",
+        "enter_valid_y_n": "妥当な入力を入力してください（y・n）:",
+
+        "prompt_op": "ご希望の計算の番号を入力してください。",
+
+        "valid_operation_num": "1. 足し算\n2. 引き算\n3. 掛け算\n4. 割り算",
+
+        "plus": "たす",
+        "minus": "ひく",
+        "times": "かける",
+        "divided_by": "わる",
+
+        "is": "は：",
+
+        "continue_calc": "計算を続けますか？： y・n",
+
+        "no_continue": "また今度"
+    }
+}

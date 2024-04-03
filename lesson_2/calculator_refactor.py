@@ -1,8 +1,38 @@
+import json
+import os
+
+def prompt(message):
+    print(f'==> {message}')
+
+def choose_language():
+    os.system('clear')
+    prompt("Please select the number of the language you would like to use.")
+    prompt("1. English")
+    prompt("2. 日本語")
+    language = input()
+
+    while language not in ["1", "2"]:
+        prompt("Please select a valid number.\n")
+        prompt("1. English")
+        prompt("2. 日本語")
+        language = input()
+
+    match language:
+        case "1":
+            language_choice = "en"
+            os.system('clear')
+        case "2":
+            language_choice = "jp"
+            os.system('clear')
+
+    return language_choice
+
+with open ('calculator_messages.json', 'r') as file:
+    MESSAGES = json.load(file)[choose_language()]
+
+prompt(MESSAGES["welcome"])
+
 while True:
-
-    def prompt(message):
-        print(f'==> {message}')
-
     def invalid_number(number_str):
         try:
             int(number_str)
@@ -11,32 +41,27 @@ while True:
 
         return False
 
-    prompt("Welcome to the calculator")
-
-    prompt("Please enter the first number:")
+    prompt(MESSAGES["first_num"])
     num1 = input()
 
     while invalid_number(num1):
-        prompt("Please enter a valid number")
+        prompt(MESSAGES["enter_valid_num"])
         num1 = input()
 
-
-    prompt("Please enter the second number:")
+    prompt(MESSAGES["second_num"])
     num2 = input()
 
     while invalid_number(num2):
-        prompt("Please enter a valid number")
+        prompt(MESSAGES["enter_valid_num"])
         num2 = input()
 
-    prompt("Please enter the number of the operation you would "
-            "like to perform\n1. Addition\n2. Subtraction\n"
-            "3. Multiplication\n4. Division")
+    prompt(MESSAGES["prompt_op"])
+    print(MESSAGES["valid_operation_num"])
     operation = input()
 
     while operation not in ['1', '2', '3', '4']:
-        prompt("Please enter a valid number\n"
-                "1. Addition\n2. Subtraction\n"
-                "3. Multiplication\n4. Division")
+        prompt(MESSAGES["enter_valid_num"])
+        print(MESSAGES["valid_operation_num"])
         operation = input()
 
     match operation:
@@ -51,24 +76,26 @@ while True:
 
     match operation:
         case '1':
-            OUTPUT_OP = 'plus'
+            OUTPUT_OP = MESSAGES["plus"]
         case '2':
-            OUTPUT_OP = 'minus'
+            OUTPUT_OP = MESSAGES["minus"]
         case '3':
-            OUTPUT_OP = 'times'
+            OUTPUT_OP = MESSAGES["times"]
         case '4':
-            OUTPUT_OP = 'divided by'
+            OUTPUT_OP = MESSAGES["divided_by"]
 
+    prompt(f'{num1} {OUTPUT_OP} {num2} {MESSAGES["is"]}{OUTPUT}')
 
-    prompt(f'The result of {num1} {OUTPUT_OP} {num2} is: {OUTPUT}')
-
-    prompt("Would you like to continue calculating?: y/n")
+    prompt(MESSAGES["continue_calc"])
     calculate_ans = input()
 
     while calculate_ans not in ['y', 'n']:
-        prompt("Please enter a valid input (y or n)")
+        prompt(MESSAGES["enter_valid_y_n"])
         calculate_ans = input()
 
-    if calculate_ans != 'y':
-        prompt("Until next time.")
+    if calculate_ans == 'y':
+        os.system('clear')
+    else:
+        prompt(MESSAGES["no_continue"])
+        os.system('clear')
         break

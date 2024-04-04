@@ -27,6 +27,23 @@ def clear_screen():
 def prompt(message):
     print(f'==> {message}')
 
+def tie_checker(player, computer):
+    return player == computer
+
+def play_again():
+    prompt("Play again? y/n")
+    play = input()
+    while play not in ['y', 'n', 'Y', 'N']:
+        prompt("Please enter a valid answer (y or n)")
+        play = input()
+    return play.lower()
+
+def player_wins(player, computer):
+    return computer in WINNING_COMBOS[player]
+
+def computer_wins(player, computer):
+    return player in WINNING_COMBOS[computer]
+
 def start_game():
     clear_screen()
     def player_pick():
@@ -69,23 +86,6 @@ def start_game():
 
     def computer_pick():
         return random.choice(VALID_CHOICES)
-
-    def player_wins(player, computer):
-        return computer in WINNING_COMBOS[player]
-
-    def computer_wins(player, computer):
-        return player in WINNING_COMBOS[computer]
-
-    def tie_checker(player, computer):
-        return player == computer
-
-    def play_again():
-        prompt("Play again? y/n")
-        play = input()
-        while play not in ['y', 'n', 'Y', 'N']:
-            prompt("Please enter a valid answer (y or n)")
-            play = input()
-        return play.lower()
 
     def score_keeper(winner, player, computer):
         if winner:

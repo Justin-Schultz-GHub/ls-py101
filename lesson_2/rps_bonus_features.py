@@ -5,30 +5,30 @@ RPS with bonus features.
 import random
 import os
 
+VALID_CHOICES = ["Rock", "Paper", "Scissors", "Lizard", "Spock"]
+SCORE_LIMIT = 5
+WINNING_COMBOS = {
+    'Rock':     ['Scissors', 'Lizard'],
+    'Paper':    ['Rock',     'Spock'],
+    'Scissors': ['Paper',    'Lizard'],
+    'Lizard':   ['Paper',    'Spock'],
+    'Spock':    ['Rock',     'Scissors'],
+}
+
+game_values = {
+    "player_score": 0,
+    "computer_score": 0,
+    "game_round": 0,
+}
+
+def clear_screen():
+    os.system('clear')
+
+def prompt(message):
+    print(f'==> {message}')
+
 def start_game():
-    def clear_screen():
-        os.system('clear')
-
     clear_screen()
-    VALID_CHOICES = ["Rock", "Paper", "Scissors", "Lizard", "Spock"]
-    SCORE_LIMIT = 5
-    WINNING_COMBOS = {
-        'Rock':     ['Scissors', 'Lizard'],
-        'Paper':    ['Rock',     'Spock'],
-        'Scissors': ['Paper',    'Lizard'],
-        'Lizard':   ['Paper',    'Spock'],
-        'Spock':    ['Rock',     'Scissors'],
-    }
-
-    game_values = {
-        "player_score": 0,
-        "computer_score": 0,
-        "game_round": 0,
-    }
-
-    def prompt(message):
-        print(f'==> {message}')
-
     def player_pick():
         prompt("""Player, enter the corresponding number to make your """
                 """choice (i.e. Rock = 1): \n"""
